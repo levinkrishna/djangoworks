@@ -1,0 +1,10 @@
+Employees
+
+1,write orm query for inserting an employee record
+Employees.objects.create(empno="11",empname="levin",job="clerk",hiredate="10-09-2023",salary="2000",deptno="20")
+
+2,orm query for fetching all employee record
+Employees.objects.all()
+
+3,orm query for fetching all employee name only
+Employees.objects.all(),values("empname")

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <table class="table table-success table-striped">
+                    <tr>
+                        <td>TITLE</td>
+                        <td>USER</td>
+                        <td>DUE_DATE</td>
+                        <td>STATUS</td>
+                        <td>ACTION</td>
+                    </tr>
+                    {%for todo in todos%}
+                    <tr>
+                        <td>{{todo.title}}</td>
+                        <td>{{todo.user}}</td>
+                        <td>{{todo.due_date}}</td>
+                        <td>{{todo.status}}</td>
+                        <td>
+                            <a href="{%url 'todo-details' todo.id %}"class="btn btn-primary">view</a>
+                            <a href="{%url 'todo-change' todo.id%}"class="btn btn-primary">edit</a>
+                            <a href="{%url 'todo-remove' todo.id %}"class="btn btn-primary">delete</a>
+                        </td>
+                        
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+</body>
+</html>

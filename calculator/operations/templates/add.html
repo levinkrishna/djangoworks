@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+</head>
+<body>
+    <a href="{%url 'home'%}">BACK TO HOME</a>
+    <img src="{%static 'images/op.png'%}" alt="">
+    <h2>Addition</h2>
+    <form action="" method="post" enctype="">
+        {%csrf_token%}
+        {{form.as_p}}
+        
+        <button type="submit">add</button>
+        
+
+    </form>
+    {{result}}
+    
+</body>
+</html>

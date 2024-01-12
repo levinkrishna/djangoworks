@@ -1,0 +1,64 @@
+1,
+from task.models import Todos
+ModelName.objects.create(field_name=value)
+Todos.objects.create(title="water bill",user="hari")
+
+
+
+===========================fetch all records==========================
+2,
+select *from Todos
+
+queryset
+qs=ModelName.objects.all()
+qs=Todos.objects.all()
+
+
+===========================================================
+3, orm query for filter a records
+fetch all todos inserted by hari
+qs=Todos.objects.filter(user="hari")
+
+
+fetch all pending Todos inserted by user haritha
+
+qs=Todos.objects.filter(user="haritha",status=False)
+
+fetch todos with id=1
+qs=Todos.objects.filter(id=1)
+     or
+
+qs=Todos.objects.get(id=1)
+
+
+======================================
+4,
+orm query for updating a records
+Todos.objects.filter(id=1).update(status=True)
+
+field lookup
+
+gt==greater than
+lt==less than
+gte==greater than equalto
+in==
+
+fetch all records whose id in range of (2,6)
+qs=Todos.objects.filter(id__gte=2,id__lte=6)
+
+
+qs=Todos.objects.filter(id__in[1,2,5]).update(status=True)
+qs=Todos.objects.filter(user__in["hari","levin"])
+qs=Todos.objects.filter(title__in["medicine","emi"])
+
+
+ModelName.objects.filter(id=1).delete()
+
+
+=================================
+for printing all books name
+
+qs=Books.objects.all().values("name")
+
+qs=Books.objects.all().exclude(price="200")
+

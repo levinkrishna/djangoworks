@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%block title_block%}
+
+<title>vehicles list</title>
+
+{%endblock%}
+
+{%block body_block%}
+{{request.user}}
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <table class="table table-striped">
+                    <tr>
+                        <td>Name</td>
+                        <td>Number</td>
+                        <td>Owner</td>
+                        <td>Action</td>
+                    </tr>
+                    {%for veh in Vehicles%}
+                    <tr>
+                        <td>{{veh.name}}</td>
+                        <td>{{veh.number}}</td>
+                        <td>{{veh.owner}}</td>
+                        <td>
+                            <a href="{%url 'vehi-detail' veh.id %}">view</a>
+                            <a href="{%url 'vehi-change' veh.id %}">edit</a>
+                            <a href="{%url 'vehi-delete' veh.id %}">delete</a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+{%endblock%}
